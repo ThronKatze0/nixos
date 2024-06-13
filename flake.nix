@@ -17,6 +17,10 @@
 
     nixvim.url = "github:ThronKatze0/nixvim";
 
+    ags.url = "github:Aylur/ags";
+
+    nh.url = "github:viperML/nh";
+
     # Hyprland
     #hyprland.url = "github:hyprwm/Hyprland";
   };

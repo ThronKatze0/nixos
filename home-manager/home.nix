@@ -18,6 +18,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
+    inputs.ags.homeManagerModules.default
   ];
 
   nixpkgs = {
@@ -65,6 +66,9 @@
     enable = true;
     userName = "ThronKatze0";
     userEmail = "vincentius.winkler@gmail.com";
+    extraConfig = {
+      credential.helper = "store";
+    };
   };
   programs.lazygit.enable = true;
   programs.fish = {
@@ -95,12 +99,13 @@
       "$mod" = "SUPER";
       exec-once = [
         "swww init"
-        "swww img /etc/nixos/home-manager/wallpapers/nix-black-4k.png"
         "systemctl --user start pipewire"
+        "ags -c /etc/nixos/home-manager/ags/bar-example/config.js"
+        "swww img /etc/nixos/home-manager/wallpapers/nix-black-4k.png"
       ];
       general = {
-        gaps_in = 3.5;
-        gaps_out = 3.5;
+        gaps_in = 4.5;
+        gaps_out = 4.5;
       };
       decoration = {
         rounding = 10;
@@ -154,6 +159,17 @@
   };
   programs.alacritty = {
     enable = true;
+  };
+
+  programs.ags = {
+    enable = true;
+
+    # additional packages to add to gjs's runtime
+    extraPackages = with pkgs; [
+      gtksourceview
+      webkitgtk
+      accountsservice
+    ];
   };
 
   # Enable home-manager and git

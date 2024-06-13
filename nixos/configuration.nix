@@ -85,7 +85,7 @@
     autoEnable = true;
     image = /etc/nixos/home-manager/wallpapers/nix-black-4k.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
-    targets.nixvim.transparent_bg.main = true;
+    targets.nixvim.transparent_bg.main = false;
     targets.chromium.enable = false;
     fonts = {
       serif = {
@@ -184,11 +184,6 @@
     #package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
   programs.fish.enable = true;
-  programs.git = {
-    enable = true;
-    config.credential.helper = "manager";
-  };
-  # test
 
   environment.systemPackages = [
     pkgs.librewolf
@@ -197,7 +192,15 @@
     pkgs.pulseaudio
     pkgs.htop
     inputs.nixvim.packages.${pkgs.system}.default
+    inputs.nh.packages.${pkgs.system}.default
+    pkgs.nix-output-monitor
+    pkgs.nvd
+    pkgs.neofetch
   ];
+
+  environment.sessionVariables = {
+    FLAKE = "/etc/nixos";
+  };
 
   # TODO: Set your hostname
   networking.hostName = "nixos";
