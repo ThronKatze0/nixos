@@ -61,6 +61,11 @@
       "network.cookie.lifetimePolicy" = 0;
     };
   };
+  programs.git = {
+    enable = true;
+    userName = "ThronKatze0";
+    userEmail = "vincentius.winkler@gmail.com";
+  };
   programs.lazygit.enable = true;
   programs.fish = {
     enable = true;
@@ -153,12 +158,6 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git = {
-    enable = true;
-    userEmail = "vincentius.winkler@gmail.com";
-    userName = "ThronKatze0";
-  };
-
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";
 }
