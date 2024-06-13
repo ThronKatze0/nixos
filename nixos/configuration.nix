@@ -186,9 +186,9 @@
   programs.fish.enable = true;
   programs.git = {
     enable = true;
-    package = pkgs.gitFull;
-    config.credential.helper = "store";
+    config.credential.helper = "manager";
   };
+  # test
 
   environment.systemPackages = [
     pkgs.librewolf
