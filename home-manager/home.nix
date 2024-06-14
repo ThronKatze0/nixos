@@ -75,6 +75,7 @@
     enable = true;
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
+      alias yt="ytfzf"
     '';
   };
   programs.rofi = {

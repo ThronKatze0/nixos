@@ -196,6 +196,8 @@
     pkgs.nix-output-monitor
     pkgs.nvd
     pkgs.neofetch
+    pkgs.ytfzf
+    pkgs.signal-desktop
   ];
 
   environment.sessionVariables = {
