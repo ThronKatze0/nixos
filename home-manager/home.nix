@@ -18,7 +18,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
-    inputs.ags.homeManagerModules.default
+    # inputs.ags.homeManagerModules.default
   ];
 
   nixpkgs = {
@@ -76,6 +76,8 @@
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
       alias yt="ytfzf"
+      alias gurk="~/Downloads/gurk"
+      alias config="cd /etc/nixos && nvim"
     '';
   };
   programs.rofi = {
@@ -101,8 +103,9 @@
       exec-once = [
         "swww init"
         "systemctl --user start pipewire"
-        "ags -c /etc/nixos/home-manager/ags/bar-example/config.js"
+        # "ags -c /etc/nixos/home-manager/ags/bar-example/config.js"
         "swww img /etc/nixos/home-manager/wallpapers/nix-black-4k.png"
+        "waybar -c /etc/nixos/home-manager/waybar/config -s /etc/nixos/home-manager/waybar/style.css"
       ];
       general = {
         gaps_in = 4.5;
@@ -162,16 +165,16 @@
     enable = true;
   };
 
-  programs.ags = {
-    enable = true;
-
-    # additional packages to add to gjs's runtime
-    extraPackages = with pkgs; [
-      gtksourceview
-      webkitgtk
-      accountsservice
-    ];
-  };
+  # programs.ags = {
+  #   enable = true;
+  #
+  #   # additional packages to add to gjs's runtime
+  #   extraPackages = with pkgs; [
+  #     gtksourceview
+  #     webkitgtk
+  #     accountsservice
+  #   ];
+  # };
 
   # Enable home-manager and git
   programs.home-manager.enable = true;

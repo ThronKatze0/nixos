@@ -87,27 +87,27 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
     targets.nixvim.transparent_bg.main = false;
     targets.chromium.enable = false;
-    fonts = {
-      serif = {
-        package = pkgs.nerdfonts;
-        name = "NerdFonts";
-      };
-
-      sansSerif = {
-        package = pkgs.nerdfonts;
-        name = "NerdFonts";
-      };
-
-      monospace = {
-        package = pkgs.nerdfonts;
-        name = "NerdFonts";
-      };
-
-      emoji = {
-        package = pkgs.nerdfonts;
-        name = "NerdFonts";
-      };
-    };
+    # fonts = {
+    #   serif = {
+    #     package = pkgs.nerdfonts;
+    #     name = "NerdFonts";
+    #   };
+    #
+    #   sansSerif = {
+    #     package = pkgs.nerdfonts;
+    #     name = "NerdFonts";
+    #   };
+    #
+    #   monospace = {
+    #     package = pkgs.nerdfonts;
+    #     name = "NerdFonts";
+    #   };
+    #
+    #   emoji = {
+    #     package = pkgs.nerdfonts;
+    #     name = "NerdFonts";
+    #   };
+    # };
   };
   # Bootloader.
   boot.loader = {
@@ -185,19 +185,40 @@
   };
   programs.fish.enable = true;
 
-  environment.systemPackages = [
-    pkgs.librewolf
-    pkgs.swww
-    pkgs.gurk-rs
-    pkgs.pulseaudio
-    pkgs.htop
+  environment.systemPackages = with pkgs; [
+    librewolf
+    swww
+    gurk-rs
+    pulseaudio
+    htop
     inputs.nixvim.packages.${pkgs.system}.default
     inputs.nh.packages.${pkgs.system}.default
-    pkgs.nix-output-monitor
-    pkgs.nvd
-    pkgs.neofetch
-    pkgs.ytfzf
-    pkgs.signal-desktop
+    nix-output-monitor
+    nvd
+    neofetch
+    ytfzf
+    signal-desktop
+    waybar
+    ripgrep
+    papirus-icon-theme
+  ];
+
+  fonts.packages = with pkgs; [
+    nerdfonts
+    fira-code
+    fantasque-sans-mono
+    noto-fonts
+    noto-fonts-emoji
+    comfortaa
+    jetbrains-mono
+    iosevka
+    noto-fonts
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    dina-font
+    proggyfonts
   ];
 
   environment.sessionVariables = {
