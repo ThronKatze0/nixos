@@ -78,6 +78,7 @@
       alias yt="ytfzf"
       alias gurk="~/Downloads/gurk"
       alias config="cd /etc/nixos && nvim"
+      alias display="geeqie"
     '';
   };
   programs.rofi = {

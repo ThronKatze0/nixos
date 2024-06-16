@@ -4,7 +4,6 @@
     "spacing": 0,
     "height": 34,
     "modules-left": [
-        "custom/logo",
         "hyprland/workspaces"
     ],
     "modules-center": [
@@ -89,11 +88,6 @@
             "default": ["󰖀","󰕾",""]
         },
         "scroll-step": 1
-    },
-    "custom/logo": {
-        "format": "  ",
-        "tooltip": false,
-        "on-click": "~/.config/rofi/launchers/misc/launcher.sh &"
     },
     "battery": {
         "format": "{capacity}% {icon}",
