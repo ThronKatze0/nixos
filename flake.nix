@@ -15,7 +15,7 @@
 
     stylix.url = "github:danth/stylix";
 
-    nixvim.url = "github:ThronKatze0/neovim-config";
+    nixvim.url = "github:ThronKatze0/Neve";
 
     #ags.url = "github:Aylur/ags";
 
